@@ -1,4 +1,4 @@
-// ===== Firebase config =====
+/ ===== Firebase config =====
 // Вставь сюда свои данные Firebase
 // ===== Firebase config =====
 const firebaseConfig = {
