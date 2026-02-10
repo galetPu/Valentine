@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Валентинки Онлайн ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>Валентинки Онлайн 💌</h1>
+    <p class="subtitle">Оставь своё признание на общей стене</p>
+</header>
+
+<section id="form-section">
+    <h2>Отправить валентинку</h2>
+    <input type="text" id="name" placeholder="Ваше имя (можно анонимно)">
+    <textarea id="message" placeholder="Ваше признание"></textarea>
+    <button id="sendBtn">Отправить ❤️</button>
+</section>
+<div id="donate-section">
+  <a href="https://yoomoney.ru/to/4100119470107386" target="_blank">
+    <button>💌 Сделать донат</button>
+  </a>
+</div>
+
+<section id="wall-section">
+    <h2>Стена валентинок</h2>
+    <div id="wall"></div>
+</section>
+
+<div id="donate-section">
+    <a href="https://yoomoney.ru/to/4100119470107386" target="_blank">
+        <button>Сделать подарок ❤️</button>
+    </a>
+    <span>Поддержать сайт 💖</span>
+</div>
+
+
+
+<footer>
+    Сделано к 14 февраля
+</footer>
+
+<!-- Модальное окно -->
+<div id="thanksModal" class="modal">
+  <div class="modal-content">
+    <p>Валентинка улетела на стену 💌</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
