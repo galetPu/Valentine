@@ -1,4 +1,4 @@
-/ ===== Firebase config =====
+// ===== Firebase config =====
 // Вставь сюда свои данные Firebase
 // ===== Firebase config =====
 const firebaseConfig = {
@@ -32,10 +32,6 @@ const wall = document.getElementById('wall');
 const tabs = document.getElementById('tabs');
 const tabsSelect = document.getElementById('tabsSelect');
 
-// Контакт/админ элементы
-const copyEmailBtn = document.getElementById('copyEmailBtn');
-const reportBtn = document.getElementById('reportBtn');
-const ADMIN_EMAIL = 'galetpy@gmail.com';
 
 // current filter for direction tabs. 'Все' means no filter.
 let currentFilter = 'Все';
