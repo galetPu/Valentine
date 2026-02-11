@@ -31,6 +31,8 @@ const sendBtn = document.getElementById('sendBtn');
 const wall = document.getElementById('wall');
 const tabs = document.getElementById('tabs');
 const tabsSelect = document.getElementById('tabsSelect');
+const toWhomInput = document.getElementById('toWhom');
+
 
 
 // current filter for direction tabs. 'Все' means no filter.
@@ -100,6 +102,7 @@ sendBtn.addEventListener('click', () => {
     const name = nameInput.value || "Аноним";
     const message = messageInput.value.trim();
     const direction = (directionInput && directionInput.value.trim()) || 'Не указано';
+    const toWhom = (toWhomInput && toWhomInput.value.trim()) || 'Не указано';
 
     // Проверка на пустое сообщение
     if(message.length === 0) {
@@ -109,6 +112,7 @@ sendBtn.addEventListener('click', () => {
 
     db.ref('valentines').push({
         name: name,
+        toWhom: toWhom,
         message: message,
         direction: direction,
         likes: 0,
@@ -234,6 +238,12 @@ db.ref('valentines').on('value', snapshot => {
                 card.appendChild(timeEl);
 
                 // Message
+                const toEl = document.createElement('div');
+                toEl.style.fontSize = '14px';
+                toEl.style.opacity = '0.8';
+                toEl.innerText = 'Кому: ' + (item.toWhom || 'Не указано');
+                card.appendChild(toEl);
+
                 const msgEl = document.createElement('p');
                 msgEl.innerText = item.message;
                 card.appendChild(msgEl);
@@ -289,18 +299,7 @@ function likePost(id, el) {
 //       If you need server-side rendering or an alternative render path, implement it
 //       explicitly. Current live rendering is done in the `db.ref('valentines').on('value', ...)` listener above.
 
-// Обработчики панели контактов
-if (copyEmailBtn) {
-    copyEmailBtn.addEventListener('click', async () => {
-        try {
-            await navigator.clipboard.writeText(ADMIN_EMAIL);
-            alert('Email скопирован в буфер обмена: ' + ADMIN_EMAIL);
-        } catch (e) {
-            // fallback: показать prompt с email
-            window.prompt('Скопируйте email администратора:', ADMIN_EMAIL);
-        }
-    });
-}
+
 
 if (reportBtn) {
     // Open modal instead of prompt
